@@ -24,7 +24,7 @@ namespace AccessData.Queries {
         public List<PacienteDto> SearchPaciente(string search_q) {
             var db = new QueryFactory(connection, sqlKataCompiler);
 
-            var query = db.Query("Paciente")
+            var query = db.Query("Pacientes")
                 .Select("PacienteId",
                         "Nombre",
                         "Apellido",

@@ -1,8 +1,10 @@
 # Micro servicio de pacientes
 
+Levantar servicio
 
+    dotnet run -p API
 
-
+URL: http://localhost:4310
 
 Crear Migration y aplicar migration
 
@@ -23,9 +25,6 @@ Comandos de dotnet-ef:
 
 
 
-Levantar Docker de PostgreSQL
-
-    docker-compose up -d
 Levantar Docker de PostgreSQL
 
     docker-compose up -d
