@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  proyectodesoftware_db_ms_paciente:
+    container_name: proyectodesoftware_db_ms_paciente
+    image: postgres
+    container_name: 'proyectodesoftware_db_ms_paciente'
+    ports:
+      - '5441:5432'
+    environment:
+        POSTGRES_DB: proyectodesoftware
+        POSTGRES_USER: proyectodesoftware
+        POSTGRES_PASSWORD: proyectodesoftware
