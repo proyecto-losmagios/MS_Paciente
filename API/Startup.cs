@@ -1,15 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using AccessData;
+using AccessData.Commands;
+using Domain.Commands;
+using Domain.Queries;
+using AccessData.Queries;
+using Application.Services;
+using System.Data;
+using SqlKata.Compilers;
+
 
 namespace API
 {
@@ -37,7 +40,9 @@ namespace API
                 return new Npgsql.NpgsqlConnection(connectionString);
             });
             
-
+            services.AddTransient<IGenericsRepository, GenericsRepository>();
+            services.AddTransient<IPacienteServices, PacienteServices>();
+            services.AddTransient<IPacienteQuery, PacienteQuery>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
