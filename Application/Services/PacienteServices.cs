@@ -12,6 +12,8 @@ namespace Application.Services {
     public interface IPacienteServices {
         Paciente CreatePaciente(PacienteDto paciente);
         List<PacienteDto> SearchPaciente(string q);
+        List<PacienteDto> GetPacienteByEmail(string email);
+
     }
 
     public class PacienteServices : IPacienteServices {
@@ -42,6 +44,10 @@ namespace Application.Services {
                
         public List<PacienteDto> SearchPaciente(string q) {
            return  _query.SearchPaciente(q);
+        }
+
+        public List<PacienteDto> GetPacienteByEmail(string email) {
+           return  _query.GetPacienteByEmail(email);
         }
     }
 }

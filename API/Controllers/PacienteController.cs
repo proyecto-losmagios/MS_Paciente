@@ -34,5 +34,16 @@ namespace API.Controllers {
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet]
+        [Route("Info")]
+        public IActionResult GetPacienteInfo([FromQuery] string email) {
+            try {
+                return new JsonResult(_service.GetPacienteByEmail(email)) { StatusCode = 200 };
+            }
+            catch (Exception e) {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

@@ -40,6 +40,23 @@ namespace AccessData.Queries {
 
             return result.ToList();
         }
+        
+        public List<PacienteDto> GetPacienteByEmail(string email) {
+            var db = new QueryFactory(connection, sqlKataCompiler);
+
+            var query = db.Query("Pacientes")
+                .Select("PacienteId",
+                        "Nombre",
+                        "Apellido",
+                        "Email",
+                        "ObraSocial",
+                        "FechaNacimiento")
+                .WhereLike("Email", $"%{email}%");
+
+            var result = query.Get<PacienteDto>();
+
+            return result.ToList();
+        }
 
     }
 }

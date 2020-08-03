@@ -8,6 +8,12 @@ namespace AccessData {
 
         public APIDbContext(DbContextOptions<APIDbContext> options): base(options) { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<Paciente>()
+                .HasIndex(b => b.Email)
+                .IsUnique();
+        }
+
         public DbSet<Paciente> Pacientes { get; set; }
 
     }

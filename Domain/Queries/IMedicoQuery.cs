@@ -6,7 +6,8 @@ using Domain.DTOs;
 namespace Domain.Queries {
 
     public interface IPacienteQuery {
-        List<PacienteDto> SearchPaciente(string q); 
+        List<PacienteDto> SearchPaciente(string q);
+        List<PacienteDto> GetPacienteByEmail(string email); 
     }
 
 }
